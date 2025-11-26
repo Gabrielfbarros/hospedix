@@ -1,19 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="shadow-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-2">
-        <div className="flex items-center">
+    <header className="shadow-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-8 py-2">
+        <Link to="/" className="flex items-center">
           <img
             className="h-10"
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC40lEQVR4nO2XTUgUYRjHnxXJwraoDN3LzGKWVrobHZKYse1LMUxzLboGEYaWlzrMrEIlFUlfJhGkUQePeVjo4MxGtSprrX1u++6WiRHuxUMnCU8mT7xjs7pDgq46rfX+4Q8v77zzzP83M8/LDAATExPTfIQAFkXga1SBj1LTMZ2D5SCfaC9WBK5XFXmcaUXgBrpFuwtSVepuvkAROK8e+OkeOwYPbdVMxzNAvHQtpIqeuGxZqsC3KQI/QQP6RDsGyvLxY7UTSc0OzWG3E1+VF6CvJA4yqQp8p1LC2f5acF9pdqYqcpIqcmNa8BIe+w5uwVC1Ix7c6JDbgYHSfFTFOMi4IvIt3bvy1pgW3O+CdJ/I1aoCN6q/Fv79efj+SNGswYnBH6oc2Htg83SPCPx3ejO6y/MylhxAEbigfuEX+zbhu8rCOQcnBtNzaY3pZudemgDAB565cvF1xfakgxODaa3ne3NRFbgeMEOLFZwYbEr4fw4AW88kONl5wgDmIQbQmkIAKd7EaAEPqQGJRDXTMaAl5HYuAwA5Wgwy6QU5gokmA63Hj2GwqggXGwQWRZ5wAUjEqwdOa4ri2pvDmulYnxfqHmGnuwx/tNTi5O36FOiBc4NZIEXaQIpM0IAWTwRXtwxhTnsMbQ+mnNM+gtYbw5jmmYKwyGE82vgYw80NOH79tAZiPsD5UCbIEQkkMqbf3VVXv2D2/ZF4cKPpscxrQ2jR18shrG96iMOX6/BttRPDpgBc9KeDHKkFmYzqwTOaP+PGe99mDW40XbvyyiDC7yey3vMGT51oRH/lTvx5q36JASQS1IOvuDSIG+7OPbjR9FxaQ6+3rcGL/Yfn/n9AkgOIBNIvfMJ1d76irSO54AnuiGm1aE3H2S4TAABgwaFncU9FYVJbLCwEwHqyK8HJzlP3VRSaswvZGEAXAyCp2MQUwJRvIRsDiKUOgHW594CVAcQYAPzXTWxjADEGAExMTPAn/QIAQ7CLMv8RwAAAAABJRU5ErkJggg=="
             alt="real-estate"
           ></img>
           <p className="text-primary-400 text-2xl font-bold">Hospedix</p>
-        </div>
+        </Link>
 
-        <div className="flex items-center rounded-full border border-gray-300 py-2 pr-4 pl-6 shadow-md">
+        <Link to="/" className="hidden lg:flex items-center rounded-full border border-gray-300 py-2 pr-4 pl-6 shadow-md">
           <p className="border-r border-r-gray-300 pr-4">Qualquer lugar</p>
           <p className="border-r border-r-gray-300 px-4">Qualquer Semana</p>
           <p className="px-4">Hóspedes</p>
@@ -34,9 +35,9 @@ const Header = () => {
               />
             </svg>
           </div>
-        </div>
+        </Link>
 
-        <div className="flex items-center rounded-full border border-gray-300 py-2 pr-4 pl-6 shadow-md gap-2">
+        <Link to="/login" className="flex items-center rounded-full border border-gray-300 py-2 pr-4 pl-6 shadow-md gap-2">
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -63,11 +64,11 @@ const Header = () => {
               clipRule="evenodd"
             />
           </svg>
-          <p>Gabriel XYZ</p>
+          <p className="sm:max-w-32 max-w-20 truncate">Gabriel XYZ Gabriel XYZ</p>
 
-        </div>
+        </Link>
       </div>
-    </div>
+    </header>
   );
 };
 
