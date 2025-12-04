@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
+import { useUserContext } from "../contexts/userContext";
 
-const Login = ({user, setUser}) => {
-  // let variavelNormal = "teste@email.com";
+const Login = () => {
+  const { user, setUser } = useUserContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
@@ -13,7 +14,7 @@ const Login = ({user, setUser}) => {
 
     if (email && password) {
       try {
-        const {data: userDoc} = await axios.post("/users/login", {
+        const { data: userDoc } = await axios.post("/users/login", {
           email,
           password,
         });

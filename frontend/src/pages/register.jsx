@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
+import { useUserContext } from "../contexts/userContext";
 
-const Register = ({setUser}) => {
-  // let variavelNormal = "teste@email.com";
+const Register = () => {
+  const { setUser } = useUserContext();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +15,7 @@ const Register = ({setUser}) => {
 
     if (email && password && name) {
       try {
-        const {data: userDoc} = await axios.post("/users", {
+        const { data: userDoc } = await axios.post("/users", {
           name,
           email,
           password,
