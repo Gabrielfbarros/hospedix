@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import AccProfile from "../components/accProfile";
+import AccPlaces from "../components/accPlaces";
 
 const Account = () => {
   const { subpage } = useParams();
@@ -16,7 +17,7 @@ const Account = () => {
 
   return (
     <section className="p-8">
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-4">
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-8">
         <div className="flex gap-2">
           <Link to="/account/profile" className={buttonClass("profile")}>Perfil</Link>
           <Link to="/account/bookings" className={buttonClass("bookings")}>Reservas</Link>
@@ -24,6 +25,7 @@ const Account = () => {
         </div>
 
         {subpage === "profile" && <AccProfile />}
+        {subpage === "places" && <AccPlaces />}
       </div>
     </section>
   );
