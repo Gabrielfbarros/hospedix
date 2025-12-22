@@ -6,6 +6,90 @@ import { sendToS3, downloadImage, uploadImage } from "./controller.js";
 
 const router = Router();
 
+router.get("/", async (req, res) => {
+  connectDb();
+  try {
+    const placeDocs = await Place.find();
+
+    res.json(placeDocs);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json("Deu erro ao encontrar as Acomodações");
+  }
+});
+
+router.get("/owner", async (req, res) => {
+  connectDb();
+  try {
+    const userInfo = await JWTVerify(req);
+    try {
+      const placeDocs = await Place.find({ owner: userInfo._id });
+
+      res.json(placeDocs);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json("Deu erro ao encontrar as Acomodações");
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json("Deu erro ao verificar o usuário");
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  connectDb();
+
+  const { id: _id } = req.params;
+
+  try {
+    const placeDoc = await Place.findOne({ _id });
+
+    res.json(placeDoc);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json("Deu erro ao encontrar a Acomodações");
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  connectDb();
+
+  const { id: _id } = req.params;
+
+  const {
+    title,
+    city,
+    photos,
+    description,
+    extras,
+    perks,
+    price,
+    checkin,
+    checkout,
+    guests,
+  } = req.body;
+
+  try {
+    const updatedPlaceDoc = await Place.findOneAndUpdate({_id},{
+      title,
+      city,
+      photos,
+      description,
+      extras,
+      perks,
+      price,
+      checkin,
+      checkout,
+      guests,
+    });
+
+    res.json(updatedPlaceDoc);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json("Deu erro ao atualizar a acomodação");
+  }
+});
+
 router.post("/", async (req, res) => {
   connectDb();
 
@@ -92,15 +176,5 @@ router.post("/upload", uploadImage().array("files", 10), async (req, res) => {
 
   res.json(fileURLArrayResolved);
 });
-
-// {
-//   fieldname: 'files',
-//   originalname: '1765664863740.jpg',
-//   encoding: '7bit',
-//   mimetype: 'image/jpeg',
-//   destination: 'C:\\Users\\gabri\\OneDrive\\Desktop\\programacao\\hospedix\\backend/tmp/',  filename: '1766188796828-473010712.jpg',
-//   path: 'C:\\Users\\gabri\\OneDrive\\Desktop\\programacao\\hospedix\\backend\\tmp\\1766188796828-473010712.jpg',
-//   size: 874238
-// }
 
 export default router;
