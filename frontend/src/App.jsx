@@ -11,7 +11,7 @@ import Place from "./pages/place.jsx";
 axios.defaults.baseURL =
   import.meta.env.MODE === "development"
     ? "http://localhost:4000/api"
-    : "http://localhost:4000/api";
+    : "https://hospedix.onrender.com/api";
 axios.defaults.withCredentials = true;
 
 console.log(import.meta.env);
