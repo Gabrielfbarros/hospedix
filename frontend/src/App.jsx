@@ -5,7 +5,7 @@ import Home from "./pages/home.jsx";
 import Login from "./pages/login.jsx";
 import Register from "./pages/register.jsx";
 import Account from "./pages/account.jsx";
-import Header from "./components/header.jsx";
+import Header from "./components/header";
 import Place from "./pages/place.jsx";
 
 axios.defaults.baseURL =
