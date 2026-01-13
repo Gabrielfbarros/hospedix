@@ -6,10 +6,15 @@ import Login from "./pages/login.jsx";
 import Register from "./pages/register.jsx";
 import Account from "./pages/account.jsx";
 import Header from "./components/header.jsx";
-import Place from "./pages/place.jsx"
+import Place from "./pages/place.jsx";
 
-axios.defaults.baseURL = import.meta.env.VITE_AXIOS_BASE_URL;
+axios.defaults.baseURL =
+  import.meta.env.MODE === "development"
+    ? "http://localhost:4000/api"
+    : "http://localhost:4000/api";
 axios.defaults.withCredentials = true;
+
+console.log(import.meta.env);
 
 function App() {
   return (
