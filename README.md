@@ -15,6 +15,7 @@ O **Hospedix** é uma aplicação Fullstack completa para aluguel e reserva de a
 
 ## 📸 Demonstração
 
+<img width="1305" height="930" alt="image" src="https://github.com/user-attachments/assets/b63d7174-bc67-4a52-9a93-cd59e26c9750" />
 
 
 ---
